@@ -1,0 +1,248 @@
+/* ==========================================================================
+   DUNGEON QUEST — Stylesheet
+   Retro 16-Bit Action RPG / Dungeon Crawler Aesthetic
+   ========================================================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pixel-font: 'Press Start 2P', monospace;
+    --gold: #ffd700;
+    --ruby: #ff2a5f;
+    --mana: #00d2ff;
+    --emerald: #00e676;
+    --bg-dark: #0a0710;
+    --stone: #251e33;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: var(--pixel-font);
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1c142b 0%, #07040d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#game-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+    background: #0d0a14;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.15), 0 0 25px rgba(0, 210, 255, 0.15);
+    border: 3px solid #3d2f52;
+    border-radius: 8px;
+    cursor: crosshair;
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+}
+
+/* --- Back Button --- */
+.back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 100;
+    padding: 8px 16px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    background: rgba(18, 12, 28, 0.92);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.back-btn:hover {
+    opacity: 1;
+    background: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+    transform: translateY(-1px);
+}
+
+/* --- Top HUD Buttons --- */
+.hud-controls {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    font-family: var(--pixel-font);
+    font-size: 9px;
+    color: #fff;
+    background: rgba(18, 12, 28, 0.92);
+    border: 2px solid var(--mana);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.action-btn:hover {
+    background: rgba(0, 210, 255, 0.25);
+    box-shadow: 0 0 16px rgba(0, 210, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+/* --- Mobile Virtual Controls --- */
+.mobile-controls {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100vw;
+    padding: 0 24px;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* D-Pad Cluster (Bottom-Left) */
+.dpad-cluster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.dpad-middle {
+    display: flex;
+    align-items: center;
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(24, 16, 40, 0.88);
+    border: 2px solid #5a427c;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: var(--pixel-font);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dpad-btn:active {
+    background: rgba(90, 66, 124, 0.7);
+    border-color: var(--gold);
+    transform: scale(0.94);
+}
+
+.dpad-center {
+    width: 32px;
+    height: 32px;
+    background: rgba(14, 8, 24, 0.8);
+}
+
+/* Action Buttons Cluster (Bottom-Right) */
+.action-cluster {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    pointer-events: auto;
+}
+
+.action-circle-btn {
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.btn-attack {
+    background: rgba(180, 20, 50, 0.88);
+    border: 2px solid #ff4d6d;
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn-attack:active {
+    background: #ff4d6d;
+    transform: scale(0.94);
+}
+
+.btn-spell {
+    background: rgba(20, 110, 180, 0.88);
+    border: 2px solid var(--mana);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.btn-spell:active {
+    background: var(--mana);
+    transform: scale(0.94);
+}
+
+.btn-dash {
+    background: rgba(180, 140, 20, 0.88);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.btn-dash:active {
+    background: var(--gold);
+    transform: scale(0.94);
+}
+
+/* Show mobile controls on touch devices or small screens */
+@media (max-width: 768px), (pointer: coarse) {
+    .mobile-controls {
+        display: flex;
+    }
+    .back-btn {
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 8px;
+    }
+}
+

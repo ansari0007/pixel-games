@@ -1,0 +1,248 @@
+/* ==========================================================================
+   PIXEL WORD SEARCH — Stylesheet
+   Retro Cyber Arcade Theme
+   ========================================================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pixel-font: 'Press Start 2P', monospace;
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff007f;
+    --neon-yellow: #ffea00;
+    --neon-green: #00e676;
+    --neon-purple: #b388ff;
+    --bg-dark: #080916;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: var(--pixel-font);
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #151833 0%, #060710 100%);
+}
+
+#game-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+    background: #0d0f22;
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+    border-radius: 8px;
+    cursor: crosshair;
+}
+
+/* --- Back Button --- */
+.back-btn {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    padding: 8px 16px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    background: rgba(14, 16, 32, 0.85);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    opacity: 0.8;
+}
+
+.back-btn:hover {
+    opacity: 1;
+    background: rgba(0, 240, 255, 0.25);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+/* --- Top HUD Control Bar --- */
+.hud-controls {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    font-family: var(--pixel-font);
+    font-size: 9px;
+    color: #fff;
+    background: rgba(14, 16, 32, 0.9);
+    border: 2px solid var(--neon-yellow);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:hover {
+    box-shadow: 0 0 12px var(--neon-yellow);
+    transform: translateY(-1px);
+}
+
+.action-btn:active {
+    background: var(--neon-yellow);
+    color: #060710;
+    transform: scale(0.95);
+}
+
+#btn-theme {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+#btn-theme:hover {
+    box-shadow: 0 0 12px var(--neon-purple);
+}
+#btn-theme:active {
+    background: var(--neon-purple);
+    color: #060710;
+}
+
+#btn-hint {
+    border-color: var(--neon-yellow);
+    color: var(--neon-yellow);
+}
+
+#btn-new {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+#btn-new:hover {
+    box-shadow: 0 0 12px var(--neon-cyan);
+}
+#btn-new:active {
+    background: var(--neon-cyan);
+    color: #060710;
+}
+
+#btn-sound {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+}
+#btn-sound:hover {
+    box-shadow: 0 0 12px var(--neon-green);
+}
+#btn-sound:active {
+    background: var(--neon-green);
+    color: #060710;
+}
+
+/* --- Theme Selection Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(6, 7, 16, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-card {
+    background: #11142b;
+    border: 3px solid var(--neon-cyan);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 440px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+    text-align: center;
+}
+
+.modal-card h2 {
+    font-size: 14px;
+    color: var(--neon-yellow);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.theme-opt-btn {
+    padding: 12px 14px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    background: #1a1e3d;
+    border: 2px solid #2e346b;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.theme-opt-btn:hover {
+    border-color: var(--neon-cyan);
+    background: #252b57;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+}
+
+.theme-opt-btn.active {
+    border-color: var(--neon-green);
+    background: rgba(0, 230, 118, 0.15);
+    color: var(--neon-green);
+}
+
+.modal-close-btn {
+    padding: 10px 24px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    background: #24294a;
+    border: 2px solid #5a6498;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 12px var(--neon-pink);
+}
+
+@media (max-width: 600px) {
+    .hud-controls {
+        gap: 4px;
+    }
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 7.5px;
+    }
+    .back-btn {
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+}
+

@@ -1,0 +1,184 @@
+/* ==========================================================================
+   PIXEL HOPPER — Stylesheet
+   Retro Arcade Frogger / Crossy Road Aesthetic
+   ========================================================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pixel-font: 'Press Start 2P', monospace;
+    --neon-green: #39ff14;
+    --neon-cyan: #00f0ff;
+    --neon-yellow: #ffea00;
+    --neon-pink: #ff007f;
+    --bg-dark: #070912;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: var(--pixel-font);
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #0f1c24 0%, #04060a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#game-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+    background: #020408;
+    box-shadow: 0 0 50px rgba(57, 255, 20, 0.25), 0 0 25px rgba(0, 240, 255, 0.2);
+    border: 3px solid rgba(57, 255, 20, 0.45);
+    border-radius: 8px;
+    cursor: default;
+    max-width: 98vw;
+    max-height: 98vh;
+    aspect-ratio: 560 / 680;
+    object-fit: contain;
+}
+
+/* --- Back Button --- */
+.back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 100;
+    padding: 8px 16px;
+    font-family: var(--pixel-font);
+    font-size: 10px;
+    color: #fff;
+    background: rgba(14, 20, 28, 0.92);
+    border: 2px solid var(--neon-green);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.back-btn:hover {
+    opacity: 1;
+    background: rgba(57, 255, 20, 0.25);
+    box-shadow: 0 0 16px rgba(57, 255, 20, 0.6);
+    transform: translateY(-1px);
+}
+
+/* --- Top HUD Buttons --- */
+.hud-controls {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    font-family: var(--pixel-font);
+    font-size: 9px;
+    color: #fff;
+    background: rgba(14, 20, 28, 0.92);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.action-btn:hover {
+    background: rgba(0, 240, 255, 0.25);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+/* --- Mobile Touch D-Pad --- */
+.mobile-dpad {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.dpad-row {
+    display: flex;
+    align-items: center;
+}
+
+.dpad-btn {
+    pointer-events: auto;
+    width: 48px;
+    height: 48px;
+    background: rgba(14, 24, 32, 0.88);
+    border: 2px solid var(--neon-green);
+    color: #ffffff;
+    font-size: 14px;
+    font-family: var(--pixel-font);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.3);
+}
+
+.dpad-btn:active {
+    background: rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 18px rgba(57, 255, 20, 0.7);
+    transform: scale(0.95);
+}
+
+.dpad-mid {
+    width: 28px;
+    height: 28px;
+}
+
+/* Show D-Pad on touch devices or small screens */
+@media (max-width: 768px), (pointer: coarse) {
+    .mobile-dpad {
+        display: flex;
+    }
+    #game-canvas {
+        max-height: calc(100vh - 140px);
+    }
+    .back-btn {
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 8px;
+    }
+}
+

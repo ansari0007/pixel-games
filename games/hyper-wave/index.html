@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hyper Wave — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+        <button class="action-btn" id="btn-pause" title="Pause Game">⏸ PAUSE</button>
+    </div>
+
+    <!-- Mobile Screen Controls -->
+    <div class="mobile-controls" id="mobile-controls">
+        <div class="dpad-zone">
+            <button class="ctrl-btn" id="btn-left">◀</button>
+            <button class="ctrl-btn" id="btn-right">▶</button>
+        </div>
+        <div class="action-zone">
+            <button class="ctrl-btn btn-bomb" id="btn-bomb">⚡ HYPER WAVE</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

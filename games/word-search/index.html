@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pixel Word Search — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-theme" title="Change Word Theme">📁 THEME</button>
+        <button class="action-btn" id="btn-hint" title="Reveal First Letter of a Word">💡 HINT (<span id="hint-count">3</span>)</button>
+        <button class="action-btn" id="btn-new" title="Generate New Puzzle">🔀 NEW</button>
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+    </div>
+
+    <!-- Theme selection modal -->
+    <div class="modal-overlay" id="theme-modal" style="display: none;">
+        <div class="modal-card">
+            <h2>SELECT THEME</h2>
+            <div class="theme-list" id="theme-list">
+                <!-- Populated dynamically via JS -->
+            </div>
+            <button class="modal-close-btn" id="btn-close-modal">CLOSE</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

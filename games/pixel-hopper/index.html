@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pixel Hopper — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Mobile Touch D-Pad -->
+        <div class="mobile-dpad" id="mobile-dpad">
+            <button class="dpad-btn btn-up" id="btn-up" aria-label="Hop Up">▲</button>
+            <div class="dpad-row">
+                <button class="dpad-btn btn-left" id="btn-left" aria-label="Hop Left">◀</button>
+                <div class="dpad-mid"></div>
+                <button class="dpad-btn btn-right" id="btn-right" aria-label="Hop Right">▶</button>
+            </div>
+            <button class="dpad-btn btn-down" id="btn-down" aria-label="Hop Down">▼</button>
+        </div>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+        <button class="action-btn" id="btn-pause" title="Pause Game">⏸ PAUSE</button>
+        <button class="action-btn" id="btn-restart" title="Restart Game">🔄 RESTART</button>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

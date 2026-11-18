@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pixel Drifter — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+        <button class="action-btn" id="btn-restart" title="Restart Race">🔄 RESTART</button>
+    </div>
+
+    <!-- Mobile On-Screen Controls -->
+    <div class="mobile-controls" id="mobile-controls">
+        <div class="steer-cluster">
+            <button class="ctrl-btn" id="btn-left" aria-label="Steer Left">◀</button>
+            <button class="ctrl-btn" id="btn-right" aria-label="Steer Right">▶</button>
+        </div>
+        <div class="action-cluster">
+            <button class="ctrl-btn btn-drift" id="btn-drift" aria-label="Drift">DRIFT</button>
+            <button class="ctrl-btn btn-nitro" id="btn-nitro" aria-label="Nitro Boost">NITRO</button>
+            <button class="ctrl-btn btn-gas" id="btn-gas" aria-label="Gas / Accelerate">GAS</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

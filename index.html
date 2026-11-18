@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Pixel Games — Play Free Retro Games Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Floating pixels background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">🕹️</span>
+                <span class="logo-text">FREE<span class="accent">PIXEL</span>GAMES</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#games" class="active">Games</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="FREE PIXEL GAMES">FREE PIXEL GAMES</h1>
+            <p class="hero-subtitle">Play awesome retro games for free — no downloads, no sign-ups, just fun!</p>
+            <a href="#games" class="btn-play">
+                <span class="btn-icon">▶</span> START PLAYING
+            </a>
+        </div>
+        <div class="hero-decoration">
+            <div class="pixel-art-scene">
+                <canvas id="hero-canvas" width="320" height="160"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="section-header">
+            <h2>🎮 GAME LIBRARY</h2>
+            <p>Choose a game and start playing instantly!</p>
+        </div>
+
+        <!-- Library Controls (Search & Category Filters) -->
+        <div class="library-controls">
+            <!-- Search Bar -->
+            <div class="search-bar-wrapper">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="game-search" 
+                    class="game-search-input" 
+                    placeholder="SEARCH 19 RETRO GAMES..." 
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+                <button id="search-clear-btn" class="search-clear-btn" title="Clear Search" aria-label="Clear Search">✕</button>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="category-filters" id="category-filters">
+                <button class="filter-btn active" data-category="all">
+                    <span class="filter-icon">👾</span> ALL <span class="filter-count">(20)</span>
+                </button>
+                <button class="filter-btn" data-category="action">
+                    <span class="filter-icon">⚔️</span> ACTION <span class="filter-count">(9)</span>
+                </button>
+                <button class="filter-btn" data-category="arcade">
+                    <span class="filter-icon">🕹️</span> ARCADE <span class="filter-count">(17)</span>
+                </button>
+                <button class="filter-btn" data-category="shooter">
+                    <span class="filter-icon">🚀</span> SHOOTER <span class="filter-count">(2)</span>
+                </button>
+                <button class="filter-btn" data-category="puzzle">
+                    <span class="filter-icon">🧩</span> PUZZLE & MERGE <span class="filter-count">(6)</span>
+                </button>
+                <button class="filter-btn" data-category="classic">
+                    <span class="filter-icon">🎲</span> CLASSIC & BOARD <span class="filter-count">(11)</span>
+                </button>
+            </div>
+
+            <!-- Filter Status Bar -->
+            <div class="filter-status-bar">
+                <span id="results-count">SHOWING 19 OF 19 GAMES</span>
+                <span id="active-filter-indicator">CATEGORY: ALL</span>
+            </div>
+        </div>
+
+        <div class="games-grid">
+            <!-- Game Card: Super Runner -->
+            <div class="game-card" onclick="window.location.href='games/super-runner/index.html'"
+                 data-title="Super Runner" data-category="arcade action classic" data-tags="super runner platformer action retro runner worlds mario 5 levels">
+                <div class="card-image">
+                    <canvas id="card-canvas-1" width="480" height="270"></canvas>
+                    <div class="card-badge">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Super Runner</h3>
+                    <p>A classic platformer adventure! Run, jump, and stomp enemies across 5 exciting worlds.</p>
+                    <div class="card-tags">
+                        <span class="tag">Platformer</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">5 Levels</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Space Blaster -->
+            <div class="game-card" onclick="window.location.href='games/space-blaster/index.html'"
+                 data-title="Space Blaster" data-category="shooter arcade action" data-tags="space blaster shoot em up galaxy alien fleet boss fights arcade retro">
+                <div class="card-image">
+                    <canvas id="card-canvas-2" width="480" height="270"></canvas>
+                    <div class="card-badge">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Space Blaster</h3>
+                    <p>Defend the galaxy in this fast-paced retro shoot-em-up! Blast alien fleets & bosses.</p>
+                    <div class="card-tags">
+                        <span class="tag">Shooter</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Boss Fights</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Bubble Master -->
+            <div class="game-card" onclick="window.location.href='games/bubble-master/index.html'"
+                 data-title="Bubble Master" data-category="puzzle arcade" data-tags="bubble master shooter match 3 puzzle bobble rainbow bombs lightning arcade">
+                <div class="card-image">
+                    <canvas id="card-canvas-3" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00e5ff, #ff007f);">POPULAR</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Bubble Master</h3>
+                    <p>Aim, bounce & match 3+ bubbles! Trigger rainbow blasts, explosive bombs, and lightning bolts.</p>
+                    <div class="card-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Match-3</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Candy Smash -->
+            <div class="game-card" onclick="window.location.href='games/candy-smash/index.html'"
+                 data-title="Candy Smash" data-category="puzzle arcade" data-tags="candy smash match 3 merge sweet chocolate cascade specials 5 levels">
+                <div class="card-image">
+                    <canvas id="card-canvas-4" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ff4081, #ffd700);">SWEET</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Candy Smash</h3>
+                    <p>Swap sweet candies, merge same sweets into specials, and trigger mega explosive combos!</p>
+                    <div class="card-tags">
+                        <span class="tag">Match-3</span>
+                        <span class="tag">Merge</span>
+                        <span class="tag">5 Levels</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Blocks -->
+            <div class="game-card" onclick="window.location.href='games/pixel-blocks/index.html'"
+                 data-title="Pixel Blocks" data-category="puzzle classic arcade" data-tags="pixel blocks tetris falling blocks puzzle retro classic rotate line clear">
+                <div class="card-image">
+                    <canvas id="card-canvas-5" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00f0ff, #ffee00);">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Blocks</h3>
+                    <p>Classic falling blocks arcade! Rotate, hard drop, clear lines, and score epic Tetris clears.</p>
+                    <div class="card-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Classic</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Bomber -->
+            <div class="game-card" onclick="window.location.href='games/pixel-bomber/index.html'"
+                 data-title="Pixel Bomber" data-category="action arcade classic" data-tags="pixel bomber bomberman maze bomb blast soft bricks monsters grid classic">
+                <div class="card-image">
+                    <canvas id="card-canvas-6" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ff5722, #00e676);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Bomber</h3>
+                    <p>Classic maze bomber action! Plant ticking bombs, blow up soft bricks, blast monsters & escape.</p>
+                    <div class="card-tags">
+                        <span class="tag">Action</span>
+                        <span class="tag">Maze</span>
+                        <span class="tag">Classic</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Ludo -->
+            <div class="game-card" onclick="window.location.href='games/pixel-ludo/index.html'"
+                 data-title="Pixel Ludo" data-category="classic puzzle" data-tags="pixel ludo board game dice tokens race 4 player multiplayer classic">
+                <div class="card-image">
+                    <canvas id="card-canvas-7" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #e53935, #ffb300);">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Ludo</h3>
+                    <p>Classic 4-player Ludo board game! Roll the 3D dice, race your tokens, capture opponents & reach home.</p>
+                    <div class="card-tags">
+                        <span class="tag">Board</span>
+                        <span class="tag">Classic</span>
+                        <span class="tag">4-Player</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Word Search -->
+            <div class="game-card" onclick="window.location.href='games/word-search/index.html'"
+                 data-title="Pixel Word Search" data-category="puzzle classic" data-tags="pixel word search letters puzzle finder casual 5 themes vocabulary">
+                <div class="card-image">
+                    <canvas id="card-canvas-8" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00f0ff, #b388ff);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Word Search</h3>
+                    <p>Retro cyber word finder puzzle! Drag & highlight hidden words in 8 directions across 5 awesome themes.</p>
+                    <div class="card-tags">
+                        <span class="tag">Word</span>
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Casual</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Fruit Ninja -->
+            <div class="game-card" onclick="window.location.href='games/fruit-ninja/index.html'"
+                 data-title="Pixel Fruit Ninja" data-category="action arcade" data-tags="pixel fruit ninja katana slice blade dojo bomb combo arcade">
+                <div class="card-image">
+                    <canvas id="card-canvas-9" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ff2a5f, #ffea00);">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Fruit Ninja</h3>
+                    <p>Slice juicy flying fruits with razor katana strokes! Rack up massive combos & dodge ticking bombs.</p>
+                    <div class="card-tags">
+                        <span class="tag">Action</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Slicer</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Hyper Wave -->
+            <div class="game-card" onclick="window.location.href='games/hyper-wave/index.html'"
+                 data-title="Hyper Wave" data-category="shooter arcade action" data-tags="hyper wave synthwave space shooter emp bomb boss core vector neon">
+                <div class="card-image">
+                    <canvas id="card-canvas-10" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00f0ff, #ff007f);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Hyper Wave</h3>
+                    <p>Neon synthwave wave defender! Blast alien geometric swarms, unleash EMP Hyper Waves & conquer the Boss Core.</p>
+                    <div class="card-tags">
+                        <span class="tag">Shooter</span>
+                        <span class="tag">Synthwave</span>
+                        <span class="tag">Retro</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Merge Cube 2048 -->
+            <div class="game-card" onclick="window.location.href='games/merge-cube/index.html'"
+                 data-title="Merge Cube 2048" data-category="puzzle arcade" data-tags="merge cube 2048 3d physics blocks numbers shoot bounce drop">
+                <div class="card-image">
+                    <canvas id="card-canvas-11" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ffd700, #ff5722);">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Merge Cube 2048</h3>
+                    <p>3D physics cube shooter! Aim, launch and collide matching blocks to create explosive merge chain reactions.</p>
+                    <div class="card-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">3D Physics</span>
+                        <span class="tag">2048</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Drifter -->
+            <div class="game-card" onclick="window.location.href='games/pixel-drifter/index.html'"
+                 data-title="Pixel Drifter" data-category="arcade action" data-tags="pixel drifter outrun racing car synthwave highway drift nitro speed">
+                <div class="card-image">
+                    <canvas id="card-canvas-12" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ff007f, #ffea00);">HOT</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Drifter</h3>
+                    <p>Synthwave arcade highway racer! Drift around neon curves, overtake traffic, ignite Nitro & beat the clock.</p>
+                    <div class="card-tags">
+                        <span class="tag">Racing</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Synthwave</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Neon Breakout -->
+            <div class="game-card" onclick="window.location.href='games/neon-breakout/index.html'"
+                 data-title="Neon Breakout" data-category="arcade classic" data-tags="neon breakout arkanoid brick breaker paddle ball laser multiball">
+                <div class="card-image">
+                    <canvas id="card-canvas-13" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00f0ff, #b026ff);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Neon Breakout</h3>
+                    <p>Cyber Arkanoid brick breaker! Unleash Multi-Ball, Fireball & Laser Cannons across neon sectors with explosive TNT chain reactions.</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Breakout</span>
+                        <span class="tag">Synthwave</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Dungeon Quest -->
+            <div class="game-card" onclick="window.location.href='games/dungeon-quest/index.html'"
+                 data-title="Dungeon Quest" data-category="action arcade" data-tags="dungeon quest action rpg roguelike crawler skeleton boss loot magic">
+                <div class="card-image">
+                    <canvas id="card-canvas-14" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ffd700, #ff1744);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Dungeon Quest</h3>
+                    <p>Pixel action RPG & dungeon crawler! Slash skeleton hordes, cast explosive fireballs, conquer floor bosses & unearth ancient relic chests.</p>
+                    <div class="card-tags">
+                        <span class="tag">Action RPG</span>
+                        <span class="tag">Crawler</span>
+                        <span class="tag">Roguelike</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Kingdom Guard -->
+            <div class="game-card" onclick="window.location.href='games/kingdom-guard/index.html'"
+                 data-title="Kingdom Guard" data-category="action classic" data-tags="kingdom guard tower defense strategy archer cannon magic tactical wave">
+                <div class="card-image">
+                    <canvas id="card-canvas-15" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ffd700, #4caf50);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Kingdom Guard</h3>
+                    <p>Pixel tower defense strategy! Build archer towers, cannon spires, frost obelisks & call meteor strikes to crush invading monster waves.</p>
+                    <div class="card-tags">
+                        <span class="tag">Tower Defense</span>
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Tactical</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Neon Pac-Maze -->
+            <div class="game-card" onclick="window.location.href='games/neon-pac-maze/index.html'"
+                 data-title="Neon Pac-Maze" data-category="arcade classic" data-tags="neon pac maze pacman dot ghost ai power pellet retro chomp">
+                <div class="card-image">
+                    <canvas id="card-canvas-16" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #ffea00, #ff007f);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Neon Pac-Maze</h3>
+                    <p>Synthwave arcade maze runner! Chomp glowing energy dots, unleash power pellets & outsmart 4 unique ghost AIs in a glowing neon grid.</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Maze</span>
+                        <span class="tag">Retro</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Hopper -->
+            <div class="game-card" onclick="window.location.href='games/pixel-hopper/index.html'"
+                 data-title="Pixel Hopper" data-category="arcade classic" data-tags="pixel hopper frogger crossy road traffic highway river log lily pad reflex">
+                <div class="card-image">
+                    <canvas id="card-canvas-17" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #39ff14, #00f0ff);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Hopper</h3>
+                    <p>Retro arcade Frogger & Crossy Road reflex runner! Dodge rushing highway traffic, ride floating river logs & conquer lily pad docks.</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Reflex</span>
+                        <span class="tag">Classic</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Cyber Snake -->
+            <div class="game-card" onclick="window.location.href='games/cyber-snake/index.html'"
+                 data-title="Cyber Snake" data-category="arcade classic" data-tags="cyber snake neon reflex dot energy orbs nitro warp synthwave arenas">
+                <div class="card-image">
+                    <canvas id="card-canvas-18" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #00f0ff, #ff007f);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Cyber Snake</h3>
+                    <p>Glowing neon synthwave snake! Consume energy orbs, trigger nitro boosts, phase through barriers & master 5 cyber arenas.</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Retro</span>
+                        <span class="tag">Reflex</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Card: Pixel Climber -->
+            <div class="game-card" onclick="window.location.href='games/pixel-climber/index.html'"
+                 data-title="Pixel Climber" data-category="arcade action" data-tags="pixel climber doodle jump infinite vertical jetpack spring platformer space">
+                <div class="card-image">
+                    <canvas id="card-canvas-19" width="480" height="270"></canvas>
+                    <div class="card-badge" style="background: linear-gradient(135deg, #39ff14, #ffd700);">NEW</div>
+                    <div class="card-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Climber</h3>
+                    <p>Infinite vertical arcade jumper! Bounce on bouncy springs, avoid broken ledges, strap on jetpacks & soar into cosmic space.</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Platformer</span>
+                        <span class="tag">Infinite</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">★★★★★</div>
+                        <button class="btn-card-play">PLAY NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon Card: Pixel Pinball -->
+            <div class="game-card coming-soon"
+                 data-title="Pixel Pinball" data-category="arcade classic" data-tags="pixel pinball cyber flipper bumper jackpot coming soon">
+                <div class="card-image placeholder">
+                    <div class="coming-soon-text">
+                        <span class="cs-icon">🕹️</span>
+                        <span>COMING SOON</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pixel Pinball</h3>
+                    <p>Cyberpunk arcade pinball! Flip flippers, hit bumper targets, rack up multiball combos & hit the jackpot!</p>
+                    <div class="card-tags">
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Pinball</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Fallback State -->
+        <div class="no-results-msg" id="no-results-msg" style="display: none;">
+            <div class="no-results-icon">🛸</div>
+            <h3>NO GAMES FOUND</h3>
+            <p>No games matched your search. Try different keywords or reset filters!</p>
+            <button class="btn-reset-filters" id="btn-reset-filters">RESET FILTERS</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>👾 ABOUT</h2>
+        <p>Free Pixel Games is a collection of free, browser-based retro games. No downloads, no installations, no accounts needed. Just click and play!</p>
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🆓</span>
+                <h3>100% Free</h3>
+                <p>All games are completely free to play</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🌐</span>
+                <h3>Play Anywhere</h3>
+                <p>Works on desktop, tablet, and mobile</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⚡</span>
+                <h3>Instant Play</h3>
+                <p>No downloads or sign-ups required</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Free Pixel Games — Made with ❤️ and pixels</p>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>
+

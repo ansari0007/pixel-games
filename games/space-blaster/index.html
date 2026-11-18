@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Space Blaster — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Mobile controls -->
+    <div class="mobile-controls" id="mobile-controls">
+        <div class="mobile-dpad">
+            <button class="mobile-btn" id="btn-left" aria-label="Left">◄</button>
+            <button class="mobile-btn" id="btn-right" aria-label="Right">►</button>
+            <button class="mobile-btn" id="btn-up" aria-label="Up">▲</button>
+            <button class="mobile-btn" id="btn-down" aria-label="Down">▼</button>
+        </div>
+        <div class="mobile-actions">
+            <button class="mobile-btn btn-bomb" id="btn-bomb" aria-label="Bomb">💣</button>
+            <button class="mobile-btn btn-fire" id="btn-fire" aria-label="Fire">⚡</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

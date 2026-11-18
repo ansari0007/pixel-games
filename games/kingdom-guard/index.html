@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kingdom Guard — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Tower Control Bar (Bottom UI) -->
+        <div class="control-panel" id="control-panel">
+            <div class="tower-selector">
+                <button class="tower-btn" id="btn-archer" data-type="archer" title="Archer Tower (100g) - Fast single-target arrows">
+                    <span class="btn-icon">🏹</span>
+                    <span class="btn-name">ARCHER</span>
+                    <span class="btn-cost">100g</span>
+                </button>
+                <button class="tower-btn" id="btn-cannon" data-type="cannon" title="Cannon Tower (150g) - Heavy AoE splash damage">
+                    <span class="btn-icon">💣</span>
+                    <span class="btn-name">CANNON</span>
+                    <span class="btn-cost">150g</span>
+                </button>
+                <button class="tower-btn" id="btn-frost" data-type="frost" title="Frost Spire (125g) - Slows enemies by 50% & deals magic damage">
+                    <span class="btn-icon">❄️</span>
+                    <span class="btn-name">FROST</span>
+                    <span class="btn-cost">125g</span>
+                </button>
+                <button class="tower-btn" id="btn-tesla" data-type="tesla" title="Tesla Spire (200g) - Chain lightning across 4 enemies">
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-name">TESLA</span>
+                    <span class="btn-cost">200g</span>
+                </button>
+            </div>
+
+            <div class="spell-selector">
+                <button class="spell-btn" id="btn-meteor" title="Meteor Strike - Rains fiery destruction on the path">
+                    <span class="spell-icon">☄️</span>
+                    <span class="spell-name">METEOR</span>
+                    <span class="spell-cd" id="meteor-cd">READY</span>
+                </button>
+                <button class="spell-btn" id="btn-reinforce" title="Militia - Summons foot soldiers to stall creeps">
+                    <span class="spell-icon">🛡️</span>
+                    <span class="spell-name">MILITIA</span>
+                    <span class="spell-cd" id="reinforce-cd">READY</span>
+                </button>
+            </div>
+
+            <div class="wave-action">
+                <button class="btn-next-wave" id="btn-next-wave">
+                    <span>⚔️ START WAVE</span>
+                    <small>EARLY BONUS +25g</small>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+        <button class="action-btn" id="btn-speed" title="Toggle 1x/2x Speed">⏩ 1X</button>
+        <button class="action-btn" id="btn-pause" title="Pause Game">⏸ PAUSE</button>
+        <button class="action-btn" id="btn-restart" title="Restart Level">🔄 RESTART</button>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Neon Breakout — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Back button -->
+    <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+        ← BACK
+    </a>
+
+    <!-- Top floating HUD controls -->
+    <div class="hud-controls" id="hud-controls">
+        <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+        <button class="action-btn" id="btn-pause" title="Pause Game">⏸ PAUSE</button>
+        <button class="action-btn" id="btn-restart" title="Restart Game">🔄 RESTART</button>
+    </div>
+
+    <!-- Mobile helper controls (optional buttons for firing laser / launching ball) -->
+    <div class="mobile-action-bar" id="mobile-action-bar">
+        <button class="ctrl-btn btn-left" id="btn-touch-left" aria-label="Move Left">◀</button>
+        <button class="ctrl-btn btn-launch" id="btn-touch-launch" aria-label="Launch Ball / Fire Lasers">🚀 LAUNCH / FIRE</button>
+        <button class="ctrl-btn btn-right" id="btn-touch-right" aria-label="Move Right">▶</button>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
+

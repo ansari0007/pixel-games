@@ -4,7 +4,7 @@ A retro arcade web portal featuring **19 free, browser-based HTML5 pixel games**
 
 ## Features
 
-- **19 Playable Retro Arcade Games** across Action, Arcade, Shooter, Puzzle & Merge, and Classic & Board categories
+- **20 Playable Retro Arcade Games** across Action, Arcade, Shooter, Puzzle & Merge, and Classic & Board categories
 - **Live Search & Category Filters** with keyboard shortcuts (`/` or `Ctrl+K` to search, `Esc` to clear)
 - **Procedural Web Audio SFX** and custom pixel-art canvas visuals
 - **Responsive Design** — playable on desktop, tablet, and mobile
@@ -31,6 +31,7 @@ A retro arcade web portal featuring **19 free, browser-based HTML5 pixel games**
 17. **Pixel Hopper** — Frogger & Crossy Road reflex runner
 18. **Cyber Snake** — Glowing neon synthwave snake across 5 arenas
 19. **Pixel Climber** — Infinite vertical jumper with springs & jetpacks
+20. **Neon Dash** — Synthwave geometry rhythm runner with gravity flips & launch pads
 
 ## Running Locally
 
@@ -39,3 +40,4 @@ Simply open `index.html` in any modern web browser, or serve the folder with any
 ```bash
 npx serve .
 ```
+

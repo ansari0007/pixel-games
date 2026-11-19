@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Neon Dash — Free Pixel Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Top Progress Header -->
+        <div id="progress-container">
+            <div id="progress-bar-bg">
+                <div id="progress-bar-fill"></div>
+            </div>
+            <div id="progress-text">0%</div>
+        </div>
+
+        <!-- Floating Back Button -->
+        <a href="../../index.html" class="back-btn" id="back-btn" title="Back to Game Library">
+            ← BACK
+        </a>
+
+        <!-- Top Floating HUD Controls -->
+        <div class="hud-controls" id="hud-controls">
+            <button class="action-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+            <button class="action-btn" id="btn-stages" title="Select Stage">⚡ STAGES</button>
+            <button class="action-btn" id="btn-pause" title="Pause Game">⏸ PAUSE</button>
+            <button class="action-btn" id="btn-restart" title="Restart Level">🔄 RESTART</button>
+        </div>
+
+        <!-- Stage Select Modal Overlay -->
+        <div id="stage-modal" class="modal-overlay hidden">
+            <div class="modal-box">
+                <h2>⚡ SELECT STAGE</h2>
+                <div class="stage-list">
+                    <button class="stage-btn" data-stage="0">
+                        <span class="stage-num">STAGE 1</span>
+                        <span class="stage-name">CYBER PULSE</span>
+                        <span class="stage-diff easy">NORMAL</span>
+                    </button>
+                    <button class="stage-btn" data-stage="1">
+                        <span class="stage-num">STAGE 2</span>
+                        <span class="stage-name">GRAVITY SHIFT</span>
+                        <span class="stage-diff med">HARD</span>
+                    </button>
+                    <button class="stage-btn" data-stage="2">
+                        <span class="stage-num">STAGE 3</span>
+                        <span class="stage-name">NEON OVERDRIVE</span>
+                        <span class="stage-diff hard">EXPERT</span>
+                    </button>
+                    <button class="stage-btn" data-stage="3">
+                        <span class="stage-num">STAGE ∞</span>
+                        <span class="stage-name">ENDLESS DASH</span>
+                        <span class="stage-diff infinite">INFINITE</span>
+                    </button>
+                </div>
+                <button id="btn-close-stages" class="btn-primary">CLOSE</button>
+            </div>
+        </div>
+
+        <!-- Skin / Color Palette Modal Overlay -->
+        <div id="skin-modal" class="modal-overlay hidden">
+            <div class="modal-box">
+                <h2>🎨 CHOOSE CUBE COLOR</h2>
+                <div class="skin-list" id="skin-list">
+                    <!-- Dynamic skin buttons -->
+                </div>
+                <button id="btn-close-skins" class="btn-primary">APPLY</button>
+            </div>
+        </div>
+
+        <!-- Mobile Quick Tap Prompt (fades out once playing) -->
+        <div id="tap-prompt" class="tap-prompt">
+            <div class="tap-icon">👆</div>
+            <span>TAP ANYWHERE OR PRESS SPACE TO JUMP</span>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>

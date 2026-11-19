@@ -2503,6 +2503,102 @@
 })();
 
 
+// --- Game Card 20 Thumbnail (Neon Dash) ---
+(function initCardCanvas20() {
+    const canvas = document.getElementById('card-canvas-20');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+
+    const W = canvas.width;
+    const H = canvas.height;
+
+    function drawNeonDashThumbnail() {
+        // Synthwave sky gradient
+        const grad = ctx.createLinearGradient(0, 0, 0, H);
+        grad.addColorStop(0, '#040510');
+        grad.addColorStop(0.5, '#190a32');
+        grad.addColorStop(1, '#2c0b3c');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
+
+        // Synthwave Sun
+        const sunX = W / 2;
+        const sunY = 120;
+        const sunR = 50;
+        const sunGrad = ctx.createLinearGradient(0, sunY - sunR, 0, sunY + sunR);
+        sunGrad.addColorStop(0, '#ffea00');
+        sunGrad.addColorStop(0.6, '#ff007f');
+        sunGrad.addColorStop(1, '#7700ff');
+        ctx.fillStyle = sunGrad;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Floor
+        const groundY = 210;
+        ctx.fillStyle = '#060714';
+        ctx.fillRect(0, groundY, W, H - groundY);
+        ctx.strokeStyle = '#00f0ff';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, groundY);
+        ctx.lineTo(W, groundY);
+        ctx.stroke();
+
+        // Spikes
+        ctx.fillStyle = 'rgba(255, 0, 85, 0.4)';
+        ctx.strokeStyle = '#ff0055';
+        ctx.lineWidth = 2;
+        [280, 320].forEach(sx => {
+            ctx.beginPath();
+            ctx.moveTo(sx, groundY);
+            ctx.lineTo(sx + 15, groundY - 30);
+            ctx.lineTo(sx + 30, groundY);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        // Yellow Jump Pad
+        ctx.fillStyle = '#ffea00';
+        ctx.fillRect(380, groundY - 8, 36, 8);
+
+        // Mid-air Glowing Cube
+        const cx = 170;
+        const cy = 135;
+        const csize = 32;
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(0.4);
+        ctx.fillStyle = '#060714';
+        ctx.fillRect(-csize / 2, -csize / 2, csize, csize);
+        ctx.strokeStyle = '#00f0ff';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(-csize / 2, -csize / 2, csize, csize);
+        ctx.fillStyle = '#ff007f';
+        ctx.fillRect(-csize / 4, -csize / 4, csize / 2, csize / 2);
+        ctx.restore();
+
+        // Title overlay banner
+        ctx.fillStyle = 'rgba(0,0,0,0.6)';
+        ctx.fillRect(0, 0, W, 44);
+        ctx.fillStyle = '#00f0ff';
+        ctx.font = '16px "Press Start 2P", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('NEON DASH', W / 2, 28);
+    }
+
+    drawNeonDashThumbnail();
+
+    const img = new Image();
+    img.src = 'assets/images/neon-dash-thumb.jpg';
+    img.onload = () => {
+        ctx.drawImage(img, 0, 0, W, H);
+    };
+})();
+
+
 // --- Smooth scroll for nav links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
